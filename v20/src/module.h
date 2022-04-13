@@ -1,4 +1,4 @@
-#include <moduleinterface.h>
+#include <interface/moduleinterface.h>
 #include <QObject>
 #include <QString>
 
@@ -8,6 +8,7 @@ class Module : public QObject, public ModuleInterface {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.deepin.plugins.test" FILE "metadata.json")
 public:
+    Module() = default;
     Module(FrameProxyInterface *frameProxy);
     ~Module() override;
  

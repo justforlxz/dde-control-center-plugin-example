@@ -15,6 +15,7 @@ set(QRCS
 
 add_library(${PROJECT_NAME} SHARED ${SRCS} ${QRCS})
 target_include_directories(${PROJECT_NAME}
+PUBLIC
     ${DdeControlCenter_INCLUDE_DIR}
 )
 target_link_libraries(${PROJECT_NAME}
@@ -24,3 +25,6 @@ PRIVATE
     PkgConfig::Dtk
     ${DdeControlCenter_LIBRARIES}
 )
+
+# TODO: should change to ${CMAKE_INSTALL_LIBDIR}
+install(TARGETS ${PROJECT_NAME} DESCRIPTION lib/dde-control-center/modules)

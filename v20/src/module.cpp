@@ -2,7 +2,7 @@
 
 using namespace DCC_NAMESPACE;
 
-Module::Module(FrameProxyInterface *frameProxy) : m_frameProxy(frameProxy) {}
+Module::Module(FrameProxyInterface *frameProxy) : ModuleInterface(frameProxy) {}
 Module::~Module() {}
 
 void Module::preInitialize(bool sync, FrameProxyInterface::PushType type)
