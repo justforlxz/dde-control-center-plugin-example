@@ -4,7 +4,47 @@
 
 本插件向导仅支持在 V20 系列的控制中心中使用。
 
-## ModuleInterface接口定义
+## 构建依赖
+
+### Deepin
+
+```shell
+sudo apt install cmake g++ dde-control-center-dev libdtkwidget-dev
+```
+
+### ArchLinux
+
+```shell
+sudo pacman -S cmake gcc dde-control-center dtkwidget
+```
+
+## 编译安装与测试
+
+### 编译与安装
+
+```shell
+mkdir build
+cd build
+cmake ../ -DCMAKE_INSTALL_PREFIX=/usr
+make
+sudo make install
+```
+
+### 测试
+
+安装完成后，退出已经运行的控制中心，在终端重新启动。
+
+```shell
+dde-control-center --show
+```
+
+如果因为插件的缘故导致控制中心启动会崩溃，可以使用 gdb 直接调试控制中心。
+
+如果想要删除插件，前往 `/usr/lib/dde-control-center/plugins` 目录下删除安装的插件即可。
+
+## 接口文档
+
+### ModuleInterface接口定义
 
 - ModuleInterface(FrameProxyInterface *frameProxy)
 
@@ -88,7 +128,7 @@
 
   用法：一般在此处调用FrameProxyInterface::setWidgetVisible或者FrameProxyInterface::setDetailVisible
 
-## FrameProxyInterface接口定义
+### FrameProxyInterface接口定义
 
 - FrameProxyInterface
 
